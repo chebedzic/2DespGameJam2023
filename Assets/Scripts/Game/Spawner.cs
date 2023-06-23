@@ -28,7 +28,7 @@ namespace Game
         [SerializeField] private Transform boss;
         [SerializeField] private Transform log;
         [SerializeField] private AnimationCurve spawningOfEnemies;
-        [SerializeField] private float max = 100;
+        public float max = 100;
 
         private Transform _player;
         public int spawned;
@@ -41,7 +41,7 @@ namespace Game
         {
             while (true)
             {
-                int rnNUmber = Random.Range(0, 3);
+                int rnNUmber = Random.Range(0, 2);
                 Transform tr;
                 if (spawned == 99)
                 {
