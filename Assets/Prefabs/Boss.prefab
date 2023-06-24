@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &698349695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 698349696}
+  m_Layer: 0
+  m_Name: shurikenRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &698349696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698349695}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.609, y: 0.175, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4963521291282656}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1001359783134256
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,7 +63,7 @@ Transform:
   - {fileID: 4332036371405282}
   m_Father: {fileID: 4746679922169376}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -7.506831}
 --- !u!1 &1055259139631532
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +96,7 @@ Transform:
   - {fileID: 4093095441874350}
   m_Father: {fileID: 4746679922169376}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 135.0378}
 --- !u!1 &1138410064646668
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,6 +141,7 @@ GameObject:
   - component: {fileID: 95246698525578024}
   - component: {fileID: 114277487229496968}
   - component: {fileID: -3296085426669211089}
+  - component: {fileID: 2070300623}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -126,10 +158,11 @@ Transform:
   m_GameObject: {fileID: 1176865416731624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: -0.7895253, y: 0.78952533, z: 0.78952533}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4746679922169376}
+  - {fileID: 698349696}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -178,12 +211,29 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.736032}
   serializedVersion: 2
   m_Radius: 0.73032296
+--- !u!114 &2070300623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176865416731624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e29e639510164d47b0bd95afe096271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 95246698525578024}
+  numberOfAttacks: 1
+  shuriken: {fileID: 1679071993275709089}
+  sword: {fileID: 1509398493195862}
+  shurikenRoot: {fileID: 698349696}
 --- !u!1 &1225167808673722
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +266,7 @@ Transform:
   - {fileID: 4914131865312808}
   m_Father: {fileID: 4746679922169376}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -157.92891}
 --- !u!1 &1337911875044888
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +385,7 @@ Transform:
   - {fileID: 4981128432421190}
   m_Father: {fileID: 4963521291282656}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 84.92872}
 --- !u!1 &1352843302362832
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +602,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4399186798605478}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &212432750120588900
 SpriteRenderer:
@@ -636,7 +686,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4399186798605478}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &212922526356158570
 SpriteRenderer:
@@ -886,11 +936,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1679071993275709118}
   - {fileID: 4912133559394912}
   - {fileID: 4993411240375620}
   m_Father: {fileID: 4105383770550478}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -16.239368}
 --- !u!1 &1887369052521412
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,6 +1026,77 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &7119051247698757764
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4399186798605478}
+    m_Modifications:
+    - target: {fileID: 8468650148080369189, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
+      propertyPath: m_Name
+      value: Shuriken
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468650148080369189, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468650148080369210, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468650148080369210, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.179
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468650148080369210, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.202
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468650148080369210, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468650148080369210, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468650148080369210, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468650148080369210, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468650148080369210, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468650148080369210, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468650148080369210, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468650148080369210, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
+--- !u!1 &1679071993275709089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8468650148080369189, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
+  m_PrefabInstance: {fileID: 7119051247698757764}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1679071993275709118 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8468650148080369210, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
+  m_PrefabInstance: {fileID: 7119051247698757764}
+  m_PrefabAsset: {fileID: 0}
 --- !u!74 &74007412102935498
 AnimationClip:
   m_ObjectHideFlags: 0
@@ -26133,4 +26255,11 @@ AnimationClip:
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.3
+    functionName: ThrowShuriken
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

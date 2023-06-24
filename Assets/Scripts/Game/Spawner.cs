@@ -30,19 +30,13 @@ namespace Game
         [SerializeField] private AnimationCurve spawningOfEnemies;
         public float max = 100;
 
-        private Transform _player;
         public int spawned;
 
-        void Awake()
-        {
-            _player = GameObject.FindGameObjectWithTag("Player").transform;
-        }
         private IEnumerator Start()
         {
             while (true)
             {
                 int rnNUmber = Random.Range(0, 2);
-                Transform tr;
                 if (spawned == 99)
                 {
                     yield return new WaitForSeconds(2);
