@@ -2051,7 +2051,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: mozes da imas maceve i strele...
+  m_text: Desperados-san, mozes da imas maceve i strele...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab815b8f912bf7e46b84611504a701a9, type: 2}
   m_sharedMaterial: {fileID: -3563467066395230160, guid: ab815b8f912bf7e46b84611504a701a9, type: 2}
@@ -2078,8 +2078,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 759.3
-  m_fontSizeBase: 759.3
+  m_fontSize: 715.39
+  m_fontSizeBase: 715.39
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2377,7 +2377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &863728063
 RectTransform:
   m_ObjectHideFlags: 0
