@@ -802,6 +802,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f35d2131d364567804cc304b3c1e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swipeToKill: 3
+  anim: {fileID: 95288517124798518}
+  col: {fileID: 3049042226030895034}
+  timeToPlayer: 2.5
 --- !u!1 &1862517729229870
 GameObject:
   m_ObjectHideFlags: 0

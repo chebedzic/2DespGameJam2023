@@ -4,7 +4,6 @@ using Game;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -13,7 +12,8 @@ public class Player : MonoBehaviour
     private int health = 3;
     [SerializeField] private TextMeshProUGUI scoreboard;
     [SerializeField] private List<GameObject> hearts;
-    
+    public SwipeDirection currentSwipe;
+
     public static Player Instance
     {
         get
@@ -26,19 +26,37 @@ public class Player : MonoBehaviour
             return instance;
         }
     }
+
     private Animator _animator;
+
     private void Awake()
     {
+        var tr = transform;
         _animator = GetComponent<Animator>();
-        
-    }
 
-    private void Update()
-    {
         if (Input.GetMouseButtonDown(0))
         {
             _animator.Play("Attacking");
         }
+
+        SwipeController.Instance.OnSwipe += direction =>
+        {
+            currentSwipe = direction;
+            switch (direction)
+            {
+                case SwipeDirection.Left:
+                    tr.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+                    _animator.Play("Attacking");
+                    break;
+                case SwipeDirection.Right:
+                    tr.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                    _animator.Play("Attacking");
+                    break;
+                case SwipeDirection.Down:
+                case SwipeDirection.Up:
+                    break;
+            }
+        };
     }
 
     public void KilledAnEnemy()
@@ -46,13 +64,14 @@ public class Player : MonoBehaviour
         killed++;
         scoreboard.text = $"Enemies:{Environment.NewLine}{(Spawner.Instance.max - killed)}";
     }
+
     public void Damaged()
     {
         if (--health == 0)
         {
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene("Main");
         }
-        
+
         for (int i = 0; i < 3; i++)
         {
             if (health <= i)

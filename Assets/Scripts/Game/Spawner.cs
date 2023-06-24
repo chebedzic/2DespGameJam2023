@@ -46,25 +46,24 @@ namespace Game
                 if (spawned == 99)
                 {
                     yield return new WaitForSeconds(2);
-                    tr = Instantiate(boss, transform.position, quaternion.identity);
-                    tr.DOMove(_player.position, 2f, false).SetEase(Ease.Linear);
+                    Instantiate(boss, transform.position, quaternion.identity);
+                 
                     yield break;;
                 }
                 switch (rnNUmber)
                 {
                     case 0:
-                        tr = Instantiate(leftSamurai, transform.position, quaternion.identity);
+                        Instantiate(leftSamurai, transform.position, quaternion.identity);
                         break;
                     case 1:
-                        tr =Instantiate(rightSamurai, transform.position, quaternion.identity);
+                        Instantiate(rightSamurai, transform.position, quaternion.identity);
                         break;
                      default:
-                        tr =Instantiate(log, transform.position, quaternion.identity);
+                        Instantiate(log, transform.position, quaternion.identity);
                         break;
                     
                 }
 
-                tr.DOMove(_player.position, 2f, false).SetEase(Ease.Linear);
                 spawned++;
                 yield return new WaitForSeconds(spawningOfEnemies.Evaluate(spawned/max));
 
