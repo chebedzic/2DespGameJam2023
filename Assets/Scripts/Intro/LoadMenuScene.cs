@@ -17,7 +17,7 @@ public class LoadMenuScene : MonoBehaviour
     }
 
 
-    private void IntroToMenu()
+    public void IntroToMenu()
     {
         sceneLoad = false;
         SceneManager.LoadScene("Main", LoadSceneMode.Single);

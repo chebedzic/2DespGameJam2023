@@ -102,6 +102,7 @@ public class Boss : MonoBehaviour
                 transform.DOMove(rightRiver.position, 1).OnComplete(() =>
                 {
                     anim.Play("Dying");
+                    Invoke(nameof(Win), 3f);
                 });
                 dead = true;
             }
@@ -111,11 +112,17 @@ public class Boss : MonoBehaviour
                 transform.DOMove(leftRiver.position, 1).OnComplete(() =>
                 {
                     anim.Play("Dying");
+                    Invoke(nameof(Win), 3f);
                 });
                 dead = true;
             }
         }
 
+    }
+
+    private void Win()
+    {
+        Player.Instance.OnWin();
     }
 
     public void DestroyMe()

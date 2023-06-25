@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     private int health = 3;
     [SerializeField] private TextMeshProUGUI scoreboard;
     [SerializeField] private List<GameObject> hearts;
+    [SerializeField] private GameObject rootBtn;
+    [SerializeField] private GameObject winScreen;
+    [SerializeField] private GameObject looseScreen;
     public SwipeDirection currentSwipe;
     private bool dead;
     public static Player Instance
@@ -72,7 +75,27 @@ public class Player : MonoBehaviour
     }
     public void OnDeath()
     {
-        SceneManager.LoadScene("Main");
+        rootBtn.SetActive(true);
+
+        looseScreen.SetActive(true);
+        var enemies = FindObjectsOfType<Enemy>();
+        var boss = FindObjectOfType<Boss>();
+        if (boss != null)
+            Destroy(boss.gameObject);
+        if (enemies != null)
+            foreach (var enemy in enemies)
+            {
+                Destroy(enemy.gameObject);
+            }
+
+        Spawner.Instance.gameObject.SetActive(false);
+    }
+    public void OnWin()
+    {
+        rootBtn.SetActive(true);
+        
+        winScreen.SetActive(true);
+        Spawner.Instance.gameObject.SetActive(false);
     }
 
     public void Damaged()
