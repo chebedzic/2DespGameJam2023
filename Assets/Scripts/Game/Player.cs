@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject rootBtn;
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject looseScreen;
+    [SerializeField] private DialogueBox dialogue;
+    [SerializeField] private AudioSource audio;
     public SwipeDirection currentSwipe;
     private bool dead;
     public static Player Instance
@@ -35,6 +37,8 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        if (scoreboard != null)
+            scoreboard.text = $"Enemies:{Environment.NewLine}{(Spawner.max - killed)}";
         var tr = transform;
         _animator = GetComponent<Animator>();
 
@@ -68,7 +72,7 @@ public class Player : MonoBehaviour
     public void KilledAnEnemy()
     {
         killed++;
-        scoreboard.text = $"Enemies:{Environment.NewLine}{(Spawner.Instance.max - killed)}";
+        scoreboard.text = $"Enemies:{Environment.NewLine}{(Spawner.max - killed)}";
     }
 
     private void ThrowShuriken()
@@ -106,6 +110,15 @@ public class Player : MonoBehaviour
         winScreen.SetActive(true);
     }
 
+    public void EndGameHelp()
+    {
+        StartCoroutine(dialogue.EndingText());
+    }
+
+    public void PLaySwoosh()
+    {
+        audio.Play();
+    }
     public void Damaged()
     {
         if (--health == 0)

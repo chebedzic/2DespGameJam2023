@@ -28,7 +28,7 @@ namespace Game
         [SerializeField] private Transform boss;
         [SerializeField] private Transform log;
         [SerializeField] private AnimationCurve spawningOfEnemies;
-        public float max = 100;
+        public static float max = 100;
 
         public int spawned;
 

@@ -459,6 +459,8 @@ MonoBehaviour:
   rootBtn: {fileID: 0}
   winScreen: {fileID: 0}
   looseScreen: {fileID: 0}
+  dialogue: {fileID: 0}
+  audio: {fileID: 0}
   currentSwipe: 0
 --- !u!50 &3662634142674984620
 Rigidbody2D:
@@ -11368,7 +11370,14 @@ AnimationClip:
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.11666667
+    functionName: PLaySwoosh
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
 --- !u!74 &74270728857003712
 AnimationClip:
   m_ObjectHideFlags: 0

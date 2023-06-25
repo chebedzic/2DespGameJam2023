@@ -30,6 +30,11 @@ public class Boss : MonoBehaviour
     [SerializeField] private Collider2D col;
     private Coroutine cor;
     private bool dead;
+    [SerializeField] private AudioSource hit;
+    [SerializeField] private AudioSource miss;
+    [SerializeField] private AudioSource hurtAPlayer;
+
+
 
     private Vector3 lScale;
     private void Awake()
@@ -130,6 +135,10 @@ public class Boss : MonoBehaviour
     {
         if(!shurikenPhase) return;
         numebrOfShurikens--;
+        if (numebrOfShurikens == 0)
+        {
+            Player.Instance.EndGameHelp();
+        }
         Instantiate(shurikenPrefab, shurikenRoot.position, quaternion.identity);
     }
     private void Start()
@@ -149,6 +158,7 @@ public class Boss : MonoBehaviour
                 StartCoroutine(Attack());
             });
             Player.Instance.Damaged();
+            hurtAPlayer.Play();
             return;
         }
 
@@ -163,6 +173,11 @@ public class Boss : MonoBehaviour
                     col.enabled = true;
                     StartCoroutine(Attack());
                 });
+                hit.Play();
+            }
+            else
+            {
+                miss.Play();
             }
         }
     }

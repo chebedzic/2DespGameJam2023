@@ -3,6 +3,7 @@ using DG.Tweening;
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
 using Game;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -12,6 +13,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Collider2D col;
     [SerializeField] private float timeToPlayer;
     private  TweenerCore<Vector3, Vector3, VectorOptions> tween;
+    [SerializeField] private AudioSource hit;
+    [SerializeField] private AudioSource miss;
+    [SerializeField] private AudioSource hurtAPlayer;
 
     private bool dealtDamage;
 
@@ -32,6 +36,7 @@ public class Enemy : MonoBehaviour
             col.enabled = false;
             dealtDamage = true;
             dead = true;
+            hurtAPlayer.Play();
             return;
         }
 
@@ -44,6 +49,11 @@ public class Enemy : MonoBehaviour
                 tween.Kill();
                 dead = true;
                 Player.Instance.KilledAnEnemy();
+                hit.Play();
+            }
+            else
+            {
+                miss.Play();
             }
         }
     }

@@ -1,3 +1,4 @@
+using Game;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -27,6 +28,12 @@ public class Loading : MonoBehaviour
         btnOkName.enabled = true;
         btnPlay.onClick.AddListener(() =>
         {
+            Spawner.max = 100;
+            SceneManager.LoadScene("Tutorial");
+        });
+        btnLeaderboards.onClick.AddListener(() =>
+        {
+            Spawner.max = 10;
             SceneManager.LoadScene("Tutorial");
         });
         btnOkName.onClick.AddListener(() =>
