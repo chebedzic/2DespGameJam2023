@@ -36,8 +36,8 @@ public class Boss : MonoBehaviour
     {
         playerTransform = Player.Instance.transform;
         bossPosition = GameObject.FindGameObjectWithTag("BossPosition").transform;
-        leftRiver = GameObject.FindGameObjectWithTag("LeftPosition").transform;
-        rightRiver = GameObject.FindGameObjectWithTag("RightPosition").transform;
+        leftRiver = GameObject.FindGameObjectWithTag("LeftRiver").transform;
+        rightRiver = GameObject.FindGameObjectWithTag("RightRiver").transform;
         lScale = transform.localScale;
     }
 
@@ -102,7 +102,7 @@ public class Boss : MonoBehaviour
                 transform.DOMove(rightRiver.position, 1).OnComplete(() =>
                 {
                     anim.Play("Dying");
-                    Invoke(nameof(Win), 3f);
+                    Player.Instance.OnWin();
                 });
                 dead = true;
             }
@@ -112,7 +112,7 @@ public class Boss : MonoBehaviour
                 transform.DOMove(leftRiver.position, 1).OnComplete(() =>
                 {
                     anim.Play("Dying");
-                    Invoke(nameof(Win), 3f);
+                    Player.Instance.OnWin();
                 });
                 dead = true;
             }
@@ -120,16 +120,11 @@ public class Boss : MonoBehaviour
 
     }
 
-    private void Win()
-    {
-        Player.Instance.OnWin();
-    }
 
     public void DestroyMe()
     {
         Destroy(gameObject);
         
-        //TODO: Endgame
     }
     private void ThrowShuriken()
     {

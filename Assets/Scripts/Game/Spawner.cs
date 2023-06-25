@@ -37,7 +37,7 @@ namespace Game
             while (true)
             {
                 int rnNUmber = Random.Range(0, 2);
-                if (spawned == 99)
+                if (spawned == max-1)
                 {
                     yield return new WaitForSeconds(2);
                     Instantiate(boss, transform.position, quaternion.identity);

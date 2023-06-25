@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Game;
 using TMPro;
@@ -92,10 +93,17 @@ public class Player : MonoBehaviour
     }
     public void OnWin()
     {
+        StartCoroutine(DoWin());
+    }
+
+    IEnumerator DoWin()
+    {
+        yield return new WaitForSeconds(2);
+        
         rootBtn.SetActive(true);
         
-        winScreen.SetActive(true);
         Spawner.Instance.gameObject.SetActive(false);
+        winScreen.SetActive(true);
     }
 
     public void Damaged()

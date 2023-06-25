@@ -456,6 +456,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  rootBtn: {fileID: 0}
+  winScreen: {fileID: 0}
+  looseScreen: {fileID: 0}
   currentSwipe: 0
 --- !u!50 &3662634142674984620
 Rigidbody2D:
@@ -4887,7 +4890,7 @@ AnimationClip:
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
