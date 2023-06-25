@@ -48,6 +48,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void ThrowShuriken()
+    {
+    }
+
     public void DestroyMe()
     {
         if (dealtDamage)

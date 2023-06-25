@@ -3,9 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class LoadMenuScene : MonoBehaviour
 {
+    [SerializeField]
     private bool sceneLoad = true;
 
-    void Update()
+    void Start()
     {
 
         if(sceneLoad)
@@ -20,6 +21,12 @@ public class LoadMenuScene : MonoBehaviour
     {
         sceneLoad = false;
         SceneManager.LoadScene("Main", LoadSceneMode.Single);
+    }
+    
+    public void LoadGame()
+    {
+        sceneLoad = false;
+        SceneManager.LoadScene("Game", LoadSceneMode.Single);
     }
 
 }

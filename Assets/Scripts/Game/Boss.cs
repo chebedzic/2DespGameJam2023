@@ -25,8 +25,8 @@ public class Boss : MonoBehaviour
     [SerializeField] private GameObject shurikenPrefab;
     [SerializeField] private GameObject sword;
     [SerializeField] private Transform shurikenRoot;
-    [SerializeField] private Transform leftRiver;
-    [SerializeField] private Transform rightRiver;
+    private Transform leftRiver;
+    private Transform rightRiver;
     [SerializeField] private Collider2D col;
     private Coroutine cor;
     private bool dead;
@@ -36,6 +36,8 @@ public class Boss : MonoBehaviour
     {
         playerTransform = Player.Instance.transform;
         bossPosition = GameObject.FindGameObjectWithTag("BossPosition").transform;
+        leftRiver = GameObject.FindGameObjectWithTag("LeftPosition").transform;
+        rightRiver = GameObject.FindGameObjectWithTag("RightPosition").transform;
         lScale = transform.localScale;
     }
 

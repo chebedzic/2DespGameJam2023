@@ -39,25 +39,26 @@ public class Player : MonoBehaviour
             _animator.Play("Attacking");
         }
 
-        SwipeController.Instance.OnSwipe += direction =>
-        {
-            if(dead) return;
-            currentSwipe = direction;
-            switch (direction)
+        if (SwipeController.Instance != null)
+            SwipeController.Instance.OnSwipe += direction =>
             {
-                case SwipeDirection.Left:
-                    tr.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
-                    _animator.Play("Attacking");
-                    break;
-                case SwipeDirection.Right:
-                    tr.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                    _animator.Play("Attacking");
-                    break;
-                case SwipeDirection.Down:
-                case SwipeDirection.Up:
-                    break;
-            }
-        };
+                if (dead) return;
+                currentSwipe = direction;
+                switch (direction)
+                {
+                    case SwipeDirection.Left:
+                        tr.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+                        _animator.Play("Attacking");
+                        break;
+                    case SwipeDirection.Right:
+                        tr.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                        _animator.Play("Attacking");
+                        break;
+                    case SwipeDirection.Down:
+                    case SwipeDirection.Up:
+                        break;
+                }
+            };
     }
 
     public void KilledAnEnemy()
@@ -66,6 +67,9 @@ public class Player : MonoBehaviour
         scoreboard.text = $"Enemies:{Environment.NewLine}{(Spawner.Instance.max - killed)}";
     }
 
+    private void ThrowShuriken()
+    {
+    }
     public void OnDeath()
     {
         SceneManager.LoadScene("Main");
@@ -77,6 +81,10 @@ public class Player : MonoBehaviour
         {
             dead = true;
             _animator.Play("Dying");
+        }
+        else
+        {
+            _animator.Play("Hurt");
         }
 
         for (int i = 0; i < 3; i++)

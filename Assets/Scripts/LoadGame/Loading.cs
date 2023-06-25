@@ -27,7 +27,7 @@ public class Loading : MonoBehaviour
         btnOkName.enabled = true;
         btnPlay.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene("Tutorial");
         });
         btnOkName.onClick.AddListener(() =>
         {

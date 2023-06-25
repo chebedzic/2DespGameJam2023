@@ -63,7 +63,7 @@ Transform:
   - {fileID: 4332036371405282}
   m_Father: {fileID: 4746679922169376}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -7.506831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -8.69433}
 --- !u!1 &1055259139631532
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ Transform:
   - {fileID: 4093095441874350}
   m_Father: {fileID: 4746679922169376}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 135.0378}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 173.64136}
 --- !u!1 &1138410064646668
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,13 +231,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 95246698525578024}
   numberOfAttacks: 3
-  numebrOfShurikens: 0
+  numebrOfShurikens: 3
   shuriken: {fileID: 1679071993275709089}
   shurikenPrefab: {fileID: 8468650148080369189, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
   sword: {fileID: 1509398493195862}
   shurikenRoot: {fileID: 698349696}
-  leftRiver: {fileID: 0}
-  rightRiver: {fileID: 0}
+  col: {fileID: -3296085426669211089}
 --- !u!1 &1225167808673722
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +269,7 @@ Transform:
   - {fileID: 4914131865312808}
   m_Father: {fileID: 4746679922169376}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -157.92891}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 154.67406}
 --- !u!1 &1337911875044888
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +388,7 @@ Transform:
   - {fileID: 4981128432421190}
   m_Father: {fileID: 4963521291282656}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 84.92872}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -174.64375}
 --- !u!1 &1352843302362832
 GameObject:
   m_ObjectHideFlags: 0
