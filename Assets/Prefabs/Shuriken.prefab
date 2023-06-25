@@ -263,6 +263,8 @@ GameObject:
   - component: {fileID: 8468650148080369210}
   - component: {fileID: 8468650148080369211}
   - component: {fileID: 8468650148080369188}
+  - component: {fileID: 395039610}
+  - component: {fileID: 1035821636406412762}
   m_Layer: 0
   m_Name: Shuriken
   m_TagString: Untagged
@@ -351,6 +353,35 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &395039610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8468650148080369189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee74f1964b11411a81754c48afec130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToReachPlayer: 0.5
+--- !u!58 &1035821636406412762
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8468650148080369189}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.008955265}
+  serializedVersion: 2
+  m_Radius: 0.7727711
 --- !u!1 &8468650148393313401
 GameObject:
   m_ObjectHideFlags: 0

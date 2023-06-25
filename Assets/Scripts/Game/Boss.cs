@@ -3,6 +3,7 @@ using System.Collections;
 using DG.Tweening;
 using Game;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -15,16 +16,27 @@ public class Boss : MonoBehaviour
 
     [SerializeField] 
     private int numberOfAttacks;
+    [SerializeField] 
+    private int numebrOfShurikens;
     private Transform playerTransform;
     private Transform bossPosition;
     private bool shurikenPhase;
     [SerializeField] private GameObject shuriken;
+    [SerializeField] private GameObject shurikenPrefab;
     [SerializeField] private GameObject sword;
     [SerializeField] private Transform shurikenRoot;
+    [SerializeField] private Transform leftRiver;
+    [SerializeField] private Transform rightRiver;
+    [SerializeField] private Collider2D col;
+    private Coroutine cor;
+    private bool dead;
+
+    private Vector3 lScale;
     private void Awake()
     {
         playerTransform = Player.Instance.transform;
         bossPosition = GameObject.FindGameObjectWithTag("BossPosition").transform;
+        lScale = transform.localScale;
     }
 
     private IEnumerator Attack()
@@ -33,7 +45,7 @@ public class Boss : MonoBehaviour
 
         if (numberOfAttacks < 0)
         {
-            StartCoroutine(StartShurikenPhase());
+            cor = StartCoroutine(StartShurikenPhase());
             yield break;
         }
         var rnd = Random.Range(0, 2);
@@ -41,14 +53,26 @@ public class Boss : MonoBehaviour
         {
             case 0:
                 swipeToKill = SwipeDirection.Left;
+                transform.localScale = new Vector3(-lScale.x, lScale.y, lScale.z);
                 break;
             case 1 :
                 swipeToKill = SwipeDirection.Right;
+                transform.localScale = new Vector3(lScale.x, lScale.y, lScale.z);
                 break;
         }
         anim.Play("Taunt");
         yield return new WaitForSeconds(1.5f);
         transform.DOMove(playerTransform.position, 2);
+        yield return new WaitForSeconds(1f);
+        switch (rnd)
+        {
+            case 0:
+                transform.localScale = new Vector3(lScale.x, lScale.y, lScale.z);
+                break;
+            case 1:
+                transform.localScale = new Vector3(-lScale.x, lScale.y, lScale.z);
+                break;
+        }
     }
 
     IEnumerator StartShurikenPhase()
@@ -58,21 +82,51 @@ public class Boss : MonoBehaviour
         shuriken.SetActive(true);
         while (true)
         {
+            
             yield return new WaitForSeconds(3f);
             anim.Play("Attacking");
         }
     }
+
+    void Update()
+    {
+        if(dead) return;
+        if (numebrOfShurikens <= 0)
+        {
+            var ginput = Input.gyro.attitude.eulerAngles.z;
+            if (ginput > 320 || ginput < 10)
+            {
+                StopCoroutine(cor);
+                transform.DOMove(rightRiver.position, 1).OnComplete(() =>
+                {
+                    anim.Play("Dying");
+                });
+                dead = true;
+            }
+            else if (ginput >= 140 && ginput < 190)
+            {
+                StopCoroutine(cor);
+                transform.DOMove(leftRiver.position, 1).OnComplete(() =>
+                {
+                    anim.Play("Dying");
+                });
+                dead = true;
+            }
+        }
+
+    }
+
+    public void DestroyMe()
+    {
+        Destroy(gameObject);
+        
+        //TODO: Endgame
+    }
     private void ThrowShuriken()
     {
         if(!shurikenPhase) return;
-        var newShuriken = Instantiate(shuriken, shurikenRoot.position, quaternion.identity);
-
-        newShuriken.transform.DOMove(playerTransform.position, 1);
-        newShuriken.transform.DORotate(new Vector3(0,0,180), 0.1f).SetLoops(-1).SetEase(Ease.Linear);
-
-
-
-
+        numebrOfShurikens--;
+        Instantiate(shurikenPrefab, shurikenRoot.position, quaternion.identity);
     }
     private void Start()
     {
@@ -83,11 +137,14 @@ public class Boss : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            // Player.Instance.Damaged();
+            anim.Play("Attacking");
+            col.enabled = false;
             transform.DOMove(bossPosition.position, 2).OnComplete(() =>
             {
+                col.enabled = true;
                 StartCoroutine(Attack());
             });
+            Player.Instance.Damaged();
             return;
         }
 
@@ -95,8 +152,13 @@ public class Boss : MonoBehaviour
         {
             if (swipeToKill == Player.Instance.currentSwipe)
             {
-                transform.DOMove(bossPosition.position, 2).OnComplete(() => { StartCoroutine(Attack()); });
-                // Player.Instance.KilledAnEnemy();
+                col.enabled = false;
+                anim.Play("Hurt");
+                transform.DOMove(bossPosition.position, 2).OnComplete(() =>
+                {
+                    col.enabled = true;
+                    StartCoroutine(Attack());
+                });
             }
         }
     }

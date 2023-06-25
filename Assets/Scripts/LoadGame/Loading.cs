@@ -13,6 +13,7 @@ public class Loading : MonoBehaviour
     [SerializeField] private Button btnLeaderboards;
     private void Awake()
     {
+        Screen.orientation = ScreenOrientation.Portrait;
         Application.targetFrameRate = 300;
         if (PlayerPrefs.HasKey("Name"))
         {

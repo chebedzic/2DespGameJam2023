@@ -158,7 +158,7 @@ Transform:
   m_GameObject: {fileID: 1176865416731624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.7895253, y: 0.78952533, z: 0.78952533}
+  m_LocalScale: {x: -0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4746679922169376}
@@ -230,10 +230,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 95246698525578024}
-  numberOfAttacks: 1
+  numberOfAttacks: 3
+  numebrOfShurikens: 0
   shuriken: {fileID: 1679071993275709089}
+  shurikenPrefab: {fileID: 8468650148080369189, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
   sword: {fileID: 1509398493195862}
   shurikenRoot: {fileID: 698349696}
+  leftRiver: {fileID: 0}
+  rightRiver: {fileID: 0}
 --- !u!1 &1225167808673722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,7 +1089,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 395039610, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e9ca9d8acd4fc4bde93d4a86b97d6dff, type: 3}
 --- !u!1 &1679071993275709089 stripped
 GameObject:
@@ -22900,7 +22905,14 @@ AnimationClip:
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.5
+    functionName: DestroyMe
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
 --- !u!74 &74945284049054232
 AnimationClip:
   m_ObjectHideFlags: 0

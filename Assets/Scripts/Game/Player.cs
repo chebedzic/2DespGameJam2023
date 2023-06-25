@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreboard;
     [SerializeField] private List<GameObject> hearts;
     public SwipeDirection currentSwipe;
-
+    private bool dead;
     public static Player Instance
     {
         get
@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
 
         SwipeController.Instance.OnSwipe += direction =>
         {
+            if(dead) return;
             currentSwipe = direction;
             switch (direction)
             {
@@ -65,11 +66,17 @@ public class Player : MonoBehaviour
         scoreboard.text = $"Enemies:{Environment.NewLine}{(Spawner.Instance.max - killed)}";
     }
 
+    public void OnDeath()
+    {
+        SceneManager.LoadScene("Main");
+    }
+
     public void Damaged()
     {
         if (--health == 0)
         {
-            SceneManager.LoadScene("Main");
+            dead = true;
+            _animator.Play("Dying");
         }
 
         for (int i = 0; i < 3; i++)

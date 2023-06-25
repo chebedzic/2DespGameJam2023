@@ -714,8 +714,8 @@ GameObject:
   - component: {fileID: 4427045727710554}
   - component: {fileID: 95288517124798518}
   - component: {fileID: 114023268263735904}
-  - component: {fileID: 4745749493815105225}
   - component: {fileID: -5903055744740727122}
+  - component: {fileID: 3146354791190757559}
   m_Layer: 0
   m_Name: SamuraiLeft
   m_TagString: Untagged
@@ -774,22 +774,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sortingOrder: 0
   applySpriterZOrder: 0
---- !u!58 &4745749493815105225
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856055982720616}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0, y: 0.5613644}
-  serializedVersion: 2
-  m_Radius: 0.5541668
 --- !u!114 &-5903055744740727122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -804,8 +788,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swipeToKill: 2
   anim: {fileID: 95288517124798518}
-  col: {fileID: 4745749493815105225}
+  col: {fileID: 3146354791190757559}
   timeToPlayer: 2.5
+--- !u!61 &3146354791190757559
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856055982720616}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.074947596, y: 1.157005}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.4122124, y: 2.395901}
+  m_EdgeRadius: 0
 --- !u!1 &1862517729229870
 GameObject:
   m_ObjectHideFlags: 0
