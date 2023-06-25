@@ -104,7 +104,7 @@ public class Boss : MonoBehaviour
             if (ginput > 320 || ginput < 10)
             {
                 StopCoroutine(cor);
-                transform.DOMove(rightRiver.position, 1).OnComplete(() =>
+                transform.DOMove(leftRiver.position, 1).OnComplete(() =>
                 {
                     anim.Play("Dying");
                     Player.Instance.OnWin();
@@ -114,7 +114,7 @@ public class Boss : MonoBehaviour
             else if (ginput >= 140 && ginput < 190)
             {
                 StopCoroutine(cor);
-                transform.DOMove(leftRiver.position, 1).OnComplete(() =>
+                transform.DOMove(rightRiver.position, 1).OnComplete(() =>
                 {
                     anim.Play("Dying");
                     Player.Instance.OnWin();

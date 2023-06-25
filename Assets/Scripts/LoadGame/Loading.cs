@@ -15,6 +15,7 @@ public class Loading : MonoBehaviour
     private void Awake()
     {
         Screen.orientation = ScreenOrientation.Portrait;
+        Input.gyro.enabled = true;
         Application.targetFrameRate = 300;
         if (PlayerPrefs.HasKey("Name"))
         {

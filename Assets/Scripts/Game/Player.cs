@@ -112,7 +112,6 @@ public class Player : MonoBehaviour
 
     public void EndGameHelp()
     {
-        Input.gyro.enabled = true;
         StartCoroutine(dialogue.EndingText());
     }
 
