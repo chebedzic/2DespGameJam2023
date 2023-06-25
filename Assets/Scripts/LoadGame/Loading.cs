@@ -24,17 +24,10 @@ public class Loading : MonoBehaviour
             ActivateEnterName();
         }
 
-        btnOkName.enabled = false;
+        btnOkName.enabled = true;
         btnPlay.onClick.AddListener(() =>
         {
             SceneManager.LoadScene("Game");
-        });
-        input.onValueChanged.AddListener((vl) =>
-        {
-            if (vl.Length > 5)
-            {
-                btnOkName.enabled = true;
-            }
         });
         btnOkName.onClick.AddListener(() =>
         {
