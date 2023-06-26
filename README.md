@@ -1,5 +1,7 @@
-# 2DespGameJam2023
-Game for game jam 2023 inhouse 2desp
+# Bushido Revenue
+
+Game for in-house Two Desperados summer game jam 2023 
+
 Made by:
 
 Marko Vujovic - MadVuja
